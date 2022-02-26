@@ -13,6 +13,7 @@ const ENDPOINTS = {
   UPLOAD_STATUS: "https://pause-http-request.herokuapp.com/file/upload-status",
   UPLOAD_REQUEST: "https://pause-http-request.herokuapp.com/file/upload-request",
 };
+
 const defaultOptions = {
   url: ENDPOINTS.UPLOAD,
   startingByte: 0,
@@ -36,7 +37,7 @@ const UploadFiles = () => {
   const [showButtons, setShowButtons] = useState(false);
 
   // validate file size and set fileSelected
-  const handleImageChange = async (fileList: any) => {
+  const handleFileChange = async (fileList: Array<any>) => {
     if (!fileList) return;
     const validFileSize = await validateFileSize(fileList[0]?.size);
     if (validFileSize?.isFileValid) setFileSelected(fileList[0]);
@@ -223,11 +224,12 @@ const UploadFiles = () => {
     setLoading(false);
     setFileSelected(undefined);
     setShowButtons(false);
+    setFileRequest(undefined);
   };
 
   const { getRootProps, getInputProps } = useDropzone({
     multiple: false,
-    onDrop: (acceptedFiles) => handleImageChange(acceptedFiles),
+    onDrop: (acceptedFiles) => handleFileChange(acceptedFiles),
   });
 
   const abortFileUpload = () => {
