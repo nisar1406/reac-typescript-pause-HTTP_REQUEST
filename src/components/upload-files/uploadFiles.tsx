@@ -9,9 +9,9 @@ import validateFileSize from "../../service/fileValidatorService";
 import ProgressBar from "../progress-bar/progressBar";
 
 const ENDPOINTS = {
-  UPLOAD: "http://localhost:9000/file/upload",
-  UPLOAD_STATUS: "http://localhost:9000/file/upload-status",
-  UPLOAD_REQUEST: "http://localhost:9000/file/upload-request",
+  UPLOAD: "https://pause-http-request.herokuapp.com/file/upload",
+  UPLOAD_STATUS: "https://pause-http-request.herokuapp.com/file/upload-status",
+  UPLOAD_REQUEST: "https://pause-http-request.herokuapp.com/file/upload-request",
 };
 const defaultOptions = {
   url: ENDPOINTS.UPLOAD,
