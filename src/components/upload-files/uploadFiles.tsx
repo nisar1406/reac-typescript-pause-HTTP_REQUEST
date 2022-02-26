@@ -38,10 +38,9 @@ const UploadFiles = () => {
   // validate file size and set fileSelected
   const handleImageChange = async (fileList: any) => {
     if (!fileList) return;
-    setFileSelected(fileList[0])
-    // const validFileSize = await validateFileSize(fileList[0]?.size);
-    // if (validFileSize?.isFileValid) setFileSelected(fileList[0]);
-    // else alert(validFileSize?.errorMessage);
+    const validFileSize = await validateFileSize(fileList[0]?.size);
+    if (validFileSize?.isFileValid) setFileSelected(fileList[0]);
+    else alert(validFileSize?.errorMessage);
   };
 
   const createObject = (options:object) => {
